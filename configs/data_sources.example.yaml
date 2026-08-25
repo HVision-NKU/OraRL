@@ -1,0 +1,90 @@
+# Copy this file, then replace every ../local_data placeholder.
+#
+# OraRL never downloads data or media. You must obtain each dataset under its
+# license, keep the required attribution, and point input/media_root at your
+# own local, licensed copy. The optional license and url values are audit
+# metadata only and are never opened by the builder.
+#
+# The seven quotas reproduce the final paper mixture: 100,032 train prompts
+# (1,563 batches of 64), with 62,656 structured prompts and 37,376 answer-only
+# prompts. The canary is
+# additional held-out data and is not subtracted from the train target.
+version: 1
+seed: 42
+target: 100032
+canary_size: 512
+max_prompts_per_media: 2
+require_media: true
+allow_shortfall: false
+
+# Supply JSON/JSONL benchmark records before a release build. Any candidate
+# sharing a normalized prompt identity or media identity is removed.
+benchmark_excludes:
+  - ../local_data/exclusions/public_benchmarks.jsonl
+
+sources:
+  - name: temporal_grounding_train
+    input: ../local_data/annotations/temporal_grounding.jsonl
+    task: temporal grounding
+    family: temporal
+    quota: 20096
+    media_root: ../local_data/media/temporal
+    license: REPLACE_WITH_DATASET_LICENSE
+    url: REPLACE_WITH_DATASET_HOME_PAGE
+
+  - name: tracking_train
+    input: ../local_data/annotations/tracking.jsonl
+    task: tracking
+    family: tracking
+    quota: 13952
+    media_root: ../local_data/media/tracking
+    license: REPLACE_WITH_DATASET_LICENSE
+    url: REPLACE_WITH_DATASET_HOME_PAGE
+
+  - name: segmentation_train
+    input: ../local_data/annotations/segmentation.jsonl
+    task: segmentation
+    family: segmentation
+    quota: 12032
+    media_root: ../local_data/media/segmentation
+    license: REPLACE_WITH_DATASET_LICENSE
+    url: REPLACE_WITH_DATASET_HOME_PAGE
+
+  - name: spatial_grounding_train
+    input: ../local_data/annotations/spatial_grounding.jsonl
+    task: spatial grounding
+    family: spatial
+    quota: 7040
+    media_root: ../local_data/media/spatial
+    license: REPLACE_WITH_DATASET_LICENSE
+    url: REPLACE_WITH_DATASET_HOME_PAGE
+
+  - name: spatial_temporal_grounding_train
+    input: ../local_data/annotations/spatial_temporal_grounding.jsonl
+    task: spatial-temporal grounding
+    family: stvg
+    quota: 9536
+    media_root: ../local_data/media/spatial_temporal
+    license: REPLACE_WITH_DATASET_LICENSE
+    url: REPLACE_WITH_DATASET_HOME_PAGE
+
+  - name: video_qa_train
+    input: ../local_data/annotations/video_qa.jsonl
+    task: video_qa_mc
+    family: video_qa
+    quota: 20288
+    media_root: ../local_data/media/video_qa
+    license: REPLACE_WITH_DATASET_LICENSE
+    url: REPLACE_WITH_DATASET_HOME_PAGE
+
+  - name: spatial_intelligence_train
+    input: ../local_data/annotations/spatial_intelligence.jsonl
+    task: spatial intelligence
+    family: spatial_intelligence
+    # Keep subtype labels such as object_counting and object_rel_direction;
+    # the reward adapter uses them to select the official scoring rule.
+    preserve_problem_type: true
+    quota: 17088
+    media_root: ../local_data/media/spatial_intelligence
+    license: REPLACE_WITH_DATASET_LICENSE
+    url: REPLACE_WITH_DATASET_HOME_PAGE

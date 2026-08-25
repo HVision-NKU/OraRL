@@ -1,0 +1,139 @@
+# Complete 4B GRPO baseline. Required paths are supplied by the CLI or environment.
+data:
+  train_files: ${oc.env:ORARL_TRAIN_DATA}
+  val_files: ${oc.env:ORARL_VAL_DATA}
+  prompt_key: problem
+  answer_key: answer
+  image_key: images
+  video_key: videos
+  image_dir: ${oc.env:ORARL_MEDIA_ROOT,null}
+  dataloader_num_workers: ${oc.env:ORARL_DATALOADER_WORKERS,4}
+  video_max_pixels: ${oc.env:ORARL_VIDEO_MAX_PIXELS,786432}
+  video_min_pixels: ${oc.env:ORARL_VIDEO_MIN_PIXELS,4096}
+  video_max_frames: ${oc.env:ORARL_VIDEO_MAX_FRAMES,128}
+  video_fps: ${oc.env:ORARL_VIDEO_FPS,2}
+  video_total_pixels: ${oc.env:ORARL_VIDEO_TOTAL_PIXELS,8388608}
+  min_pixels: ${oc.env:ORARL_IMAGE_MIN_PIXELS,4096}
+  image_max_pixels: ${oc.env:ORARL_IMAGE_MAX_PIXELS,1048576}
+  use_preprocessed_videos: false
+  video_source_mode: ${oc.env:ORARL_VIDEO_SOURCE_MODE,realtime_only}
+  preprocessed_video_dir: ${oc.env:ORARL_PREPROCESSED_DIR,null}
+  inline_video_tensors: ${oc.env:ORARL_INLINE_VIDEO_TENSORS,false}
+  max_prompt_length: ${oc.env:ORARL_MAX_PROMPT_LENGTH,16384}
+  max_response_length: ${oc.env:ORARL_MAX_RESPONSE_LENGTH,4096}
+  rollout_batch_size: ${oc.env:ORARL_ROLLOUT_BATCH_SIZE,64}
+  mini_rollout_batch_size: null
+  val_batch_size: ${oc.env:ORARL_VAL_BATCH_SIZE,16}
+  format_prompt: null
+  override_chat_template: null
+  enable_thinking: ${oc.env:ORARL_ENABLE_THINKING,false}
+  response_prefix: ""
+  shuffle: true
+  seed: ${oc.env:ORARL_SEED,42}
+  group_by_task: true
+  group_by_task_key: problem_type
+  filter_overlong_prompts: false
+
+algorithm:
+  name: grpo
+  adv_estimator: grpo
+  scale_rewards: true
+  disable_kl: true
+  use_kl_loss: false
+  kl_penalty: low_var_kl
+  kl_coef: 0.0
+
+worker:
+  actor:
+    global_batch_size: ${oc.env:ORARL_GLOBAL_BATCH_SIZE,64}
+    micro_batch_size_per_device_for_update: ${oc.env:ORARL_UPDATE_MICRO_BATCH,2}
+    micro_batch_size_per_device_for_experience: ${oc.env:ORARL_EXPERIENCE_MICRO_BATCH,1}
+    ppo_epochs: 1
+    max_grad_norm: 1.0
+    clip_ratio_low: 0.2
+    clip_ratio_high: 0.2
+    loss_avg_mode: token
+    padding_free: true
+    dynamic_batching: true
+    max_token_len_per_gpu: ${oc.env:ORARL_MAX_TOKEN_LEN_PER_GPU,24576}
+    ulysses_size: 1
+    use_torch_compile: false
+    model:
+      model_path: ${oc.env:ORARL_MODEL_PATH}
+      tokenizer_path: ${oc.env:ORARL_TOKENIZER_PATH,${oc.env:ORARL_MODEL_PATH}}
+      enable_gradient_checkpointing: true
+      trust_remote_code: false
+      freeze_vision_tower: true
+      train_vision_merger: false
+    optim:
+      lr: ${oc.env:ORARL_LEARNING_RATE,2.0e-6}
+      weight_decay: 0.0
+      strategy: adamw
+      lr_warmup_ratio: 0.0
+      lr_scheduler_type: constant
+    fsdp:
+      torch_dtype: bf16
+      enable_full_shard: true
+      enable_cpu_offload: false
+      enable_rank0_init: true
+      use_orig_params: false
+    offload:
+      offload_params: false
+      offload_optimizer: false
+
+  rollout:
+    name: ${oc.env:ORARL_ROLLOUT_BACKEND,vllm}
+    n: 8
+    seed: ${oc.env:ORARL_SEED,42}
+    temperature: 1.0
+    top_p: 0.85
+    limit_images: 10
+    gpu_memory_utilization: 0.5
+    enforce_eager: false
+    enable_chunked_prefill: true
+    tensor_parallel_size: 1
+    max_num_batched_tokens: 32768
+    disable_tqdm: true
+    calculate_log_probs: false
+    collect_seq_logprob_for_filter: false
+    val_override_config:
+      temperature: 0.7
+      top_p: 0.95
+      n: 1
+
+  ref:
+    fsdp:
+      torch_dtype: bf16
+      enable_full_shard: true
+      enable_cpu_offload: false
+      enable_rank0_init: true
+    offload:
+      offload_params: false
+
+  reward:
+    reward_function: orarl.rewards:compute_score
+    reward_function_kwargs: {}
+
+trainer:
+  total_epochs: 1
+  max_steps: null
+  project_name: OraRL
+  experiment_name: grpo-4b
+  logger: ["console"]
+  nnodes: 1
+  n_gpus_per_node: 8
+  val_freq: -1
+  val_before_train: false
+  val_only: false
+  val_generations_to_log: 0
+  save_freq: 50
+  save_limit: 3
+  save_model_only: false
+  keep_optim_only_latest: true
+  save_checkpoint_path: ${oc.env:ORARL_OUTPUT_DIR}
+  load_checkpoint_path: null
+  find_last_checkpoint: false
+  keep_best_train_ckpt: false
+  best_train_metric_key: reward/overall
+  best_train_smooth_window: 5
+  best_train_min_step: 10

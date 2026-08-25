@@ -1,0 +1,28 @@
+# CUDA-sensitive packages (PyTorch, vLLM, and FlashAttention) are installed in
+# a controlled order by scripts/create_conda_env.sh.
+
+accelerate==1.13.0
+codetiming==1.4.0
+datasets==4.8.4
+liger-kernel==0.7.0
+math-verify==0.9.0
+mathruler==0.1.0
+numpy==2.2.6
+omegaconf==2.3.0
+opencv-python-headless==4.13.0.92
+pandas==3.0.2
+peft==0.19.1
+pillow==12.1.1
+pyarrow==23.0.1
+pycocotools==2.0.11
+pylatexenc==2.10
+qwen-vl-utils[decord]==0.0.14
+ray[default]==2.54.0
+rouge-score==0.1.2
+tensordict==0.12.2
+# TorchCodec follows the PyTorch minor ABI: 0.10 is required for torch 2.10.
+torchcodec==0.10.0
+torchdata==0.11.0
+transformers==5.5.4
+flash-linear-attention==0.4.2
+wandb==0.26.0

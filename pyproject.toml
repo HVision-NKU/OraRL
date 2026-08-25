@@ -1,0 +1,98 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orarl"
+version = "0.1.0"
+description = "Annotations as rollouts for unified video MLLM reinforcement learning"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+keywords = [
+    "reinforcement-learning",
+    "video-understanding",
+    "multimodal",
+    "grpo",
+]
+authors = [
+    { name = "Yunheng Li" },
+    { name = "Guohong Mu" },
+    { name = "Hao Li" },
+    { name = "Shengsheng Qian" },
+    { name = "Dingwen Zhang" },
+    { name = "Qibin Hou" },
+    { name = "Ming-Ming Cheng" },
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "numpy",
+    "PyYAML",
+    "torch",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+lint = ["ruff"]
+hf = ["huggingface_hub"]
+
+[project.urls]
+Homepage = "https://orarl.github.io/"
+Documentation = "https://orarl.github.io/"
+
+[project.scripts]
+orarl-train = "orarl.cli.train:main"
+orarl-eval = "orarl.cli.evaluate:main"
+orarl-eval-data = "orarl.cli.eval_data:main"
+orarl-prepare = "orarl.cli.prepare:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["orarl*", "verl*"]
+
+[tool.setuptools.data-files]
+"share/orarl" = ["environment.yml", "requirements-cu129.txt"]
+"share/orarl/configs" = ["configs/*.yaml"]
+"share/orarl/docs" = ["docs/*.md"]
+"share/orarl/scripts" = ["scripts/*.py", "scripts/*.sh"]
+"share/orarl/eval" = ["eval/README.md"]
+"share/orarl/eval/task" = ["eval/task/*.py", "eval/task/*.sh"]
+"share/orarl/eval/task/mindcube" = ["eval/task/mindcube/*.py"]
+"share/orarl/eval/task/mmsi" = ["eval/task/mmsi/*.py", "eval/task/mmsi/*.sh"]
+"share/orarl/eval/task/revsi" = ["eval/task/revsi/*.py", "eval/task/revsi/*.sh"]
+"share/orarl/eval/task/segmentation" = [
+    "eval/task/segmentation/*.py",
+    "eval/task/segmentation/*.sh",
+]
+"share/orarl/eval/task/spatial_grounding" = ["eval/task/spatial_grounding/*.py"]
+"share/orarl/eval/task/spatial_temporal_grounding" = [
+    "eval/task/spatial_temporal_grounding/*.py",
+]
+"share/orarl/eval/task/temporal_grounding" = [
+    "eval/task/temporal_grounding/*.py",
+    "eval/task/temporal_grounding/*.sh",
+]
+"share/orarl/eval/task/tracking" = ["eval/task/tracking/*.py"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+# The evaluation runtime, the training runtime, and the checkpoint merger are
+# ported verbatim from the stack that produced the published numbers. Several of
+# their long lines are prompt literals, so reformatting them would change model
+# inputs.
+extend-exclude = ["eval/task", "verl", "scripts/model_merger.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]

@@ -1,0 +1,18 @@
+# Base Conda layer. Use scripts/create_conda_env.sh so CUDA wheels and editable
+# packages are installed in the required order.
+name: orarl
+
+channels:
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip
+  - setuptools>=77
+  - wheel
+  - packaging
+  - ninja
+  - ffmpeg=7
+  - cuda-toolkit=12.9

@@ -1,0 +1,20 @@
+include LICENSE
+include NOTICE
+include README.md
+include environment.yml
+include pyproject.toml
+include requirements-cu129.txt
+recursive-include configs *.yaml
+recursive-include data/eval *.jsonl *.md
+recursive-include docs *.md
+recursive-include eval *.md *.py *.sh
+recursive-include scripts *.py *.sh
+recursive-include tests *.py
+recursive-include verl *.py
+prune build
+prune dist
+prune .pytest_cache
+prune .ruff_cache
+prune checkpoint
+prune checkpoints
+global-exclude __pycache__ *.py[cod] .DS_Store

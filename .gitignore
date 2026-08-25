@@ -1,0 +1,80 @@
+# Python and test state
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.nox/
+.tox/
+.coverage
+htmlcov/
+build/
+dist/
+.venv/
+venv/
+
+# Local inputs and generated runs
+/artifacts/
+/cache/
+/checkpoint/
+/checkpoints/
+/data/
+/local_data/
+/logs/
+/models/
+/outputs/
+/prepared/
+/ray_results/
+/runs/
+/wandb/
+/orarl-eval-summary.json
+nohup.out
+core.*
+
+# Model, media, and generated dataset payloads
+*.arrow
+*.avi
+*.bin
+*.ckpt
+*.jsonl
+*.mkv
+*.mov
+*.mp4
+*.npy
+*.npz
+*.parquet
+*.pt
+*.pth
+*.safetensors
+*.webm
+*.log
+
+# Only the small evaluation profile manifest is release source. Canonical
+# annotations, media, subtitles, and processed artifacts live on Hugging Face.
+!/data/
+/data/*
+!/data/eval/
+/data/eval/*
+!/data/eval/datasets.jsonl
+!/data/eval/README.md
+
+# README media shipped with the repository
+!/assets/orarl-teaser.mp4
+
+# Editor and operating-system state
+.DS_Store
+.idea/
+.ipynb_checkpoints/
+.vscode/
+*~
+
+# Local configuration
+.env
+.env.*
+*.local.yaml
+*.local.yml
+*.key
+*.pem
+credentials.json
+token

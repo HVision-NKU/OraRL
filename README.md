@@ -16,6 +16,8 @@ Qibin Hou · Ming-Ming Cheng
   &nbsp;&nbsp;·&nbsp;&nbsp;
   <a href="https://orarl.github.io/">🌐 Project Page</a>
   &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="https://huggingface.co/spaces/OraRL/video-ora-9b-demo">🎮 Live Demo</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
   <a href="#models">🤗 Models (4B / 9B)</a>
 </p>
 <p>

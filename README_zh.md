@@ -127,7 +127,7 @@ Video-ORA-9B 在不使用思维链解码的情况下，在统一的七类任务�
 | 模型 | 基座模型 | 发布配置 | 权重 |
 | --- | --- | --- | --- |
 | **Video-ORA-9B** | Qwen3.5-9B | `orarl_9b.yaml` | [Hugging Face](https://huggingface.co/OraRL/Video-ORA-9B) |
-| **Video-ORA-4B** | Qwen3.5-4B | `orarl_4b.yaml` | Hugging Face（即将发布） |
+| **Video-ORA-4B** | Qwen3.5-4B | `orarl_4b.yaml` | [Hugging Face](https://huggingface.co/OraRL/Video-ORA-4B) |
 
 ### vLLM 部署
 

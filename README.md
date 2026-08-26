@@ -132,7 +132,7 @@ setting; the paper's three-benchmark spatial-intelligence average excludes it.
 | Model | Backbone | Released recipe | Weights |
 | --- | --- | --- | --- |
 | **Video-ORA-9B** | Qwen3.5-9B | `orarl_9b.yaml` | [Hugging Face](https://huggingface.co/OraRL/Video-ORA-9B) |
-| **Video-ORA-4B** | Qwen3.5-4B | `orarl_4b.yaml` | Hugging Face (coming soon) |
+| **Video-ORA-4B** | Qwen3.5-4B | `orarl_4b.yaml` | [Hugging Face](https://huggingface.co/OraRL/Video-ORA-4B) |
 
 ### vLLM Serving
 

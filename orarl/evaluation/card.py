@@ -262,6 +262,7 @@ def dataset_card_metadata(
     return {
         "pretty_name": "OraRL Evaluation Data",
         "license": "other",
+        "task_categories": ["video-text-to-text"],
         "tags": [
             "video",
             "multimodal",

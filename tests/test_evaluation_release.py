@@ -314,6 +314,7 @@ def test_card_subset_and_metadata_apis_group_splits() -> None:
         "byte_count": 50,
     }
     assert metadata["size_categories"] == ["n<1K"]
+    assert metadata["task_categories"] == ["video-text-to-text"]
     assert metadata["tags"][:3] == ["video", "multimodal", "evaluation"]
     fields = {item["name"]: item for item in metadata["orarl"]["schema_fields"]}
     assert fields["sample_id"]["required"] is True

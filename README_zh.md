@@ -30,6 +30,19 @@ Qibin Hou · Ming-Ming Cheng
   <a href="LICENSE">⚖️ 许可证</a>
 </p>
 
+<p align="center">
+  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28347"><img alt="Papers with Code: SOTA on ActivityNet-TimeLens" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28347&amp;live=1"></a>
+  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28346"><img alt="Papers with Code: SOTA on Charades-TimeLens" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28346&amp;live=1"></a>
+  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28350"><img alt="Papers with Code: SOTA on MeViS" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28350&amp;live=1"></a>
+  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28348"><img alt="Papers with Code: SOTA on QVHighlights-TimeLens Validation" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28348&amp;live=1"></a>
+  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28355"><img alt="Papers with Code: SOTA on VideoHolmes" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28355&amp;live=1"></a>
+  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28351"><img alt="Papers with Code: #2 on ReasonVOS" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28351&amp;live=1"></a>
+</p>
+
+<p align="center">
+  <a href="https://paperswithcode.co/paper/2608.20492#results">在 Papers with Code 查看全部 11 项已核验评测</a>
+</p>
+
 <a href="https://orarl.github.io/assets/orarl-teaser.mp4">
   <img src="assets/orarl-hero.gif"
        alt="OraRL 方法动态预览" width="92%">
@@ -77,19 +90,6 @@ Qibin Hou · Ming-Ming Cheng
 <p align="center">
   <img src="assets/paper-results.png"
        alt="Video-ORA-9B 在七类任务上的结果" width="100%">
-</p>
-
-<p align="center">
-  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28347"><img alt="Papers with Code: SOTA on ActivityNet-TimeLens" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28347&amp;live=1"></a>
-  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28346"><img alt="Papers with Code: SOTA on Charades-TimeLens" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28346&amp;live=1"></a>
-  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28350"><img alt="Papers with Code: SOTA on MeViS" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28350&amp;live=1"></a>
-  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28348"><img alt="Papers with Code: SOTA on QVHighlights-TimeLens Validation" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28348&amp;live=1"></a>
-  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28355"><img alt="Papers with Code: SOTA on VideoHolmes" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28355&amp;live=1"></a>
-  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28351"><img alt="Papers with Code: #2 on ReasonVOS" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28351&amp;live=1"></a>
-</p>
-
-<p align="center">
-  <a href="https://paperswithcode.co/paper/2608.20492#results">在 Papers with Code 查看全部 11 项已核验评测</a>
 </p>
 
 ### 数据集级结果

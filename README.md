@@ -85,6 +85,19 @@ chain-of-thought supervision or decoding.
        alt="Video-ORA-9B results across seven task families" width="100%">
 </p>
 
+<p align="center">
+  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28347"><img alt="Papers with Code: SOTA on ActivityNet-TimeLens" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28347&amp;live=1"></a>
+  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28346"><img alt="Papers with Code: SOTA on Charades-TimeLens" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28346&amp;live=1"></a>
+  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28350"><img alt="Papers with Code: SOTA on MeViS" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28350&amp;live=1"></a>
+  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28348"><img alt="Papers with Code: SOTA on QVHighlights-TimeLens Validation" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28348&amp;live=1"></a>
+  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28355"><img alt="Papers with Code: SOTA on VideoHolmes" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28355&amp;live=1"></a>
+  <a href="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge-link?eval=28351"><img alt="Papers with Code: #2 on ReasonVOS" src="https://paperswithcode.co/api/v1/papers/2608.20492/leaderboard-badge.svg?eval=28351&amp;live=1"></a>
+</p>
+
+<p align="center">
+  <a href="https://paperswithcode.co/paper/2608.20492#results">View all 11 verified evaluations on Papers with Code</a>
+</p>
+
 ### Dataset-Level Results
 
 <picture>
